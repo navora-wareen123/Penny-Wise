@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Penny Wise</string>
+
+    <string-array name="expense_categories">
+        <item>Food and drinks</item>
+        <item>Debt</item>
+        <item>Bills(e.g. electricity, rent, water, internet, etc)</item>
+        <item>Home credit</item>
+        <item>Grocery</item>
+        <item>Hospital Bills</item>
+        <item>Others</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    tools:context=".expense_adder"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/lbl_expenseAdder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add new Expense"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/lbl_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_below="@+id/lbl_expenseAdder"
+        android:layout_marginTop="10dp"/>
+
+        <RadioGroup
+            android:layout_below="@+id/lbl_status"
+            android:id="@+id/rg_expenseStatus"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_paid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paid"
+                android:textColor="@color/black"
+                android:checked="true"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/rb_unpaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unpaid"
+                android:gravity="center"/>
+        </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/rl_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rg_expenseStatus">
+
+        <TextView
+            android:id="@+id/lbl_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            />
+
+        <Spinner
+            android:id="@+id/sp_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_category"
+            android:entries="@array/expense_categories"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/et_expenseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@id/rl_category"
+        android:hint="Expense Name"/>
+
+    <EditText
+        android:id="@+id/et_expenseAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_expenseName"
+        android:inputType="number"
+        android:hint="Expense Amount"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/et_expenseAmount"
+        android:id="@+id/due_dateContainer">
+
+        <TextView
+            android:id="@+id/lbl_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected Date"
+            android:layout_marginEnd="5dp"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_expenseAmount"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+
+        >
+        <Button
+            android:id="@+id/btn_expenseOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            android:layout_marginEnd="10dp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btn_expenseClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
