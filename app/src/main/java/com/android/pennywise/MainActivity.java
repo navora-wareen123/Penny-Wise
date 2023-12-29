@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
         storeDataInArrays();
         customAdapter = new CustomAdapter(MainActivity.this, expenseId, expenseName, expenseAmount, expenseDate, expenseTime, expenseCategory);
-        rv_paid.setAdapter(customAdapter);
+        //rv_paid.setAdapter(customAdapter);
         //rv_paid.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
