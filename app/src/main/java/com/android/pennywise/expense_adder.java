@@ -109,9 +109,6 @@ public class expense_adder extends AppCompatActivity {
             public void onClick(View v) {
                 //GETTING THE VALUES THAT FILLED UP BY THE USER
 
-                //debugging
-                Toast.makeText(expense_adder.this, "Ok clicked", Toast.LENGTH_SHORT).show();
-
                 //get the value/ name of the radio button who is checked
                 int id =rg_status.getCheckedRadioButtonId();
                 rb_status = findViewById(id);

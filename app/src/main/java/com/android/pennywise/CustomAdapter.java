@@ -13,16 +13,17 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     Context context;
-    private ArrayList expenseId, expenseName, expenseAmount, expenseDate, expenseTime, expenseCategory;
+    private ArrayList<String> expenseId, expenseName, expenseAmount, expenseDate, expenseTime, expenseCategory;
+
 
 
     CustomAdapter(Context context,
-                  ArrayList expenseId,
-                  ArrayList expenseName,
-                  ArrayList expenseAmount,
-                  ArrayList expenseDate,
-                  ArrayList expenseTime,
-                  ArrayList expenseCategory){
+                  ArrayList<String> expenseId,
+                  ArrayList<String> expenseName,
+                  ArrayList<String> expenseAmount,
+                  ArrayList<String> expenseDate,
+                  ArrayList<String> expenseTime,
+                  ArrayList<String> expenseCategory){
 
         this.context = context;
         this.expenseId = expenseId;

@@ -28,23 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    //layout from the fragment
-    RecyclerView rv_paid,rv_unpaid;
-
-    //initialize database
-    expense_database myDb;
-
-    //define custom adapter;
-    CustomAdapter customAdapter;
-    ArrayList<String> expenseId, expenseName, expenseAmount, expenseTime, expenseDate, expenseCategory;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //finding the recycler view inside of the main method class where is the id located
-        rv_paid = findViewById(R.id.rv_paidFragment);
-        rv_unpaid = findViewById(R.id.rv_unpaidFragment);
 
         //finding tabItems
         ti_paid = findViewById(R.id.paid_expense_tab);
@@ -97,37 +85,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        //instantiating the database
-        myDb = new expense_database(MainActivity.this);
-
-        //instantiating the array lists
-        expenseId = new ArrayList<>();
-        expenseName = new ArrayList<>();
-        expenseAmount = new ArrayList<>();
-        expenseTime = new ArrayList<>();
-        expenseDate = new ArrayList<>();
-        expenseCategory = new ArrayList<>();
-
-        storeDataInArrays();
-        customAdapter = new CustomAdapter(MainActivity.this, expenseId, expenseName, expenseAmount, expenseDate, expenseTime, expenseCategory);
-        //rv_paid.setAdapter(customAdapter);
-        //rv_paid.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-    }
-
-    void storeDataInArrays(){
-        Cursor cursor = myDb.readAllPaidData();
-        if(cursor.getCount() == 0){
-            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
-        }else{
-            while (cursor.moveToNext()){
-                expenseId.add(cursor.getString(0));
-                expenseName.add(cursor.getString(1));
-                expenseAmount.add(cursor.getString(2));
-                expenseTime.add(cursor.getString(4));
-                expenseDate.add(cursor.getString(3));
-                expenseCategory.add(cursor.getString(6));
-            }
-        }
     }
 }

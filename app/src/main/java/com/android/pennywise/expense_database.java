@@ -70,18 +70,8 @@ public class expense_database extends SQLiteOpenHelper {
         }
     }
 
-    Cursor readAllPaidData(){
-        String query = "SELECT * FROM " + TABLE_NAME;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if(db != null){
-            cursor = db.rawQuery(query, null);
-        }
-        return cursor;
-    }
-
-    Cursor readAllUnpaidData(){
+    //this cursor will contain all the data in our database table will we return in our readAllData method and it will be called in to where it will gonna be displayed the data
+    Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
