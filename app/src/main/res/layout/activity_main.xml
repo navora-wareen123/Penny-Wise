@@ -20,6 +20,13 @@
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btn_expense_adder"
+            android:src="@android:drawable/ic_menu_preferences"/>
+
+
         <Button
             android:id="@+id/btn_expense_adder"
             android:layout_width="wrap_content"
@@ -31,35 +38,19 @@
 
     </RelativeLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/expense_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_title_adder"
-        android:layout_marginHorizontal="10dp">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/paid_expense_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paid expenses"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/unpaid_expense_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Unpaid expenses"/>
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/expenses_container"
-        android:layout_marginHorizontal="10dp"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/expense_nav"
         android:layout_above="@+id/main_nav"
-        android:layout_marginBottom="10dp"/>
+        android:layout_below="@+id/rl_title_adder"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/expense_container">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
         android:id="@+id/main_nav"

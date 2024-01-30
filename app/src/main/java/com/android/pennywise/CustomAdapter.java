@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     Context context;
-    private ArrayList<String> expenseId, expenseName, expenseAmount, expenseDate, expenseTime, expenseCategory;
+    private ArrayList<String> expenseId, expenseName, expenseAmount, expenseDate, expenseTime,expenseStatus, expenseCategory;
 
 
 
@@ -23,6 +23,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                   ArrayList<String> expenseAmount,
                   ArrayList<String> expenseDate,
                   ArrayList<String> expenseTime,
+                  ArrayList<String> expenseStatus,
                   ArrayList<String> expenseCategory){
 
         this.context = context;
@@ -31,6 +32,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.expenseAmount = expenseAmount;
         this.expenseDate = expenseDate;
         this.expenseTime = expenseTime;
+        this.expenseStatus = expenseStatus;
         this.expenseCategory = expenseCategory;
     }
 
@@ -61,14 +63,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         TextView expenseId, expenseName, expenseAmount, expenseDate, expenseTime, expenseCategory;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             expenseId = itemView.findViewById(R.id.view_expenseId);
             expenseName = itemView.findViewById(R.id.view_expenseName);
             expenseAmount = itemView.findViewById(R.id.view_expense_paid_amount);
             expenseDate = itemView.findViewById(R.id.view_expenseDate);
             expenseTime = itemView.findViewById(R.id.view_expenseTime);
             expenseCategory = itemView.findViewById(R.id.view_category);
-
         }
     }
 }

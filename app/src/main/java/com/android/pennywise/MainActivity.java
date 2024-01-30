@@ -24,9 +24,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_finance, btn_statistics;
-    TabItem ti_paid,ti_unpaid;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    RecyclerView expense_viewer;
+    expense_database myDb;
+    ArrayList<String> expense_id, expense_name, expense_amount, expense_category, expense_status, expense_date, expense_time;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,26 +35,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //finding the recycler view inside of the main method class where is the id located
 
-        //finding tabItems
-        ti_paid = findViewById(R.id.paid_expense_tab);
-        ti_unpaid = findViewById(R.id.unpaid_expense_tab);
 
-        //initializing the tab layout and view pager
-        tabLayout = findViewById(R.id.expense_nav);
-        viewPager = findViewById(R.id.expenses_container);
-
-        //setting up the tablayout class into the view pager class
-        tabLayout.setupWithViewPager(viewPager);
-
-        //initializing the vpadapter class and has 2 argument
-        VPadapter vPadapter = new VPadapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-
-        //adding fragment to the viewpager and giving each a title
-        vPadapter.addFragment(new paid(), "Paid");
-        vPadapter.addFragment(new unpaid(), "Unpaid");
-
-        //initializing and setting up the Custom adapter to the viewPager
-        viewPager.setAdapter(vPadapter);
+        myDb = new expense_database(MainActivity.this);
+        expense_id = new ArrayList<>();
+        expense_name = new ArrayList<>();
+        expense_amount = new ArrayList<>();
+        expense_category = new ArrayList<>();
+        expense_status = new ArrayList<>();
+        expense_date = new ArrayList<>();
+        expense_time = new ArrayList<>();
+        expense_viewer = findViewById(R.id.expense_container);
 
         //show the expense_adder
         //expense_adder is a layout where you can fill up a form to add new paid or unpaid expenses
@@ -85,5 +76,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        storeDataInArrays();
+        customAdapter = new CustomAdapter(MainActivity.this, expense_id, expense_name, expense_amount, expense_date, expense_time, expense_status, expense_category);
+        expense_viewer.setAdapter(customAdapter);
+        expense_viewer.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+    }
+    void storeDataInArrays(){
+        Cursor cursor = myDb.readAllData();
+        if(cursor.getCount() == 0){
+            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
+        }else{
+            while(cursor.moveToNext()){
+                expense_id.add(cursor.getString(0));
+                expense_name.add(cursor.getString(1));
+                expense_amount.add(cursor.getString(2));
+                expense_date.add(cursor.getString(3));
+                expense_time.add(cursor.getString(4));
+                expense_status.add(cursor.getString(5));
+                expense_category.add(cursor.getString(6));
+            }
+        }
     }
 }

@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 public class unpaid extends Fragment {
     RecyclerView unpaid;
-    expense_database myDb;
-    ArrayList<String> expenseId, expenseName, expenseAmount, expenseTime, expenseDate, expenseCategory;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
