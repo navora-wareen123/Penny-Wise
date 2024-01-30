@@ -71,6 +71,7 @@ public class expense_database extends SQLiteOpenHelper {
     }
 
     //this cursor will contain all the data in our database table will we return in our readAllData method and it will be called in to where it will gonna be displayed the data
+    /*
     Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -81,6 +82,7 @@ public class expense_database extends SQLiteOpenHelper {
         }
         return cursor;
     }
+    */
 }
 
 //note::::: yung data pala for time, kasi diba pag sa unpaid di natin kukunin yung time, ang kukunin lng is yung date, paano kaya ang gagawin kung paano i sosolve yun?// solved!!!!!

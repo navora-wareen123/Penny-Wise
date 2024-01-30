@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class expense_paid_card_layout extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
